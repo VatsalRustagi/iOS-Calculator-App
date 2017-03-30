@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var userInTheMiddleOfTyping = false
     var decimalButtonAlreadyPressed = false
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
         }
         set{
             display.text = String(newValue)
+            descriptionLabel.text = brain.getDescription()
         }
     }
     
@@ -49,6 +51,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearButton(_ sender: UIButton) {
+        brain.clear()
         displayValue = 0;
         userInTheMiddleOfTyping = false
         decimalButtonAlreadyPressed = false
